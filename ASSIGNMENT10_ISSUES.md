@@ -1,6 +1,6 @@
 # Assignment 10 – GitHub Issues for Creational Pattern Tasks
 
-Below are all issues to be created for your GitHub Kanban board to satisfy the Project Management (10%) requirement of Assignment 10.
+This document contains the full list of GitHub issues used to track and manage the implementation of Assignment 10: Class Implementations, Six Creational Design Patterns, Unit Testing, and Documentation. These issues are also linked to the GitHub Kanban board to fulfill the Project Management (10%) requirement.
 
 ---
 
@@ -8,13 +8,14 @@ Below are all issues to be created for your GitHub Kanban board to satisfy the P
 
 **Labels**: `enhancement`, `creational-pattern`, `assignment10`
 
-**Description**:
-Implement a Singleton pattern in Python to control access to a single instance of a database connection.
+**Description**:  
+Implement the Singleton design pattern in `singleton.py` to manage a shared database connection.
 
-- Use private constructor and static instance management
+- Create class: `DatabaseConnection`
+- Implement Singleton logic using `__new__()`
 - Add `connect()` and `disconnect()` methods
-- Verify via unit test in `test_singleton.py`
-- File: `/creational_patterns/singleton.py`
+- File path: `creational_patterns/singleton.py`
+- Related test: `tests/test_singleton.py`
 
 ---
 
@@ -22,11 +23,13 @@ Implement a Singleton pattern in Python to control access to a single instance o
 
 **Labels**: `enhancement`, `creational-pattern`, `assignment10`
 
-**Description**:
-Create a `VitalStatFactory` class to instantiate different types of `VitalStat` based on input type.
+**Description**:  
+Use a simple factory in `simple_factory.py` to instantiate `VitalStat` objects based on input.
 
-- Support types: heart_rate, sleep, hrv
-- Add class in `/creational_patterns/simple_factory.py`
+- Create class: `VitalStatFactory`
+- Method: `create_stat(stat_type, value)`
+- Output class: `VitalStat`
+- File path: `creational_patterns/simple_factory.py`
 
 ---
 
@@ -34,12 +37,13 @@ Create a `VitalStatFactory` class to instantiate different types of `VitalStat` 
 
 **Labels**: `enhancement`, `creational-pattern`, `assignment10`
 
-**Description**:
-Use Factory Method to generate different `Recommendation` types using `create_recommendation()`.
+**Description**:  
+Use the Factory Method pattern in `factory_method.py` to dynamically return different `Recommendation` types.
 
-- Create abstract `Recommendation` and two subclasses: `SleepRecommendation`, `ActivityRecommendation`
-- Implement generators for each
-- File: `/creational_patterns/factory_method.py`
+- Create abstract class: `Recommendation`
+- Concrete classes: `SleepRecommendation`, `ActivityRecommendation`
+- Generators: `SleepRecGenerator`, `ActivityRecGenerator`
+- File path: `creational_patterns/factory_method.py`
 
 ---
 
@@ -47,25 +51,27 @@ Use Factory Method to generate different `Recommendation` types using `create_re
 
 **Labels**: `enhancement`, `creational-pattern`, `assignment10`
 
-**Description**:
-Use Abstract Factory to build related objects: `DailyReport` and `WeeklySummary`.
+**Description**:  
+Apply the Abstract Factory pattern in `abstract_factory.py` to generate related objects together.
 
-- Abstract factory: `ReportFactory`
+- Abstract class: `ReportFactory`
 - Concrete factory: `FitnessDataFactory`
-- Add in `/creational_patterns/abstract_factory.py`
+- Output objects: `DailyReport`, `WeeklySummary`
+- File path: `creational_patterns/abstract_factory.py`
 
 ---
 
-## 5. Implement Builder for FitnessProfile
+## 5. Implement Builder Pattern for FitnessProfile
 
 **Labels**: `enhancement`, `creational-pattern`, `assignment10`
 
-**Description**:
-Use Builder Pattern to construct complex `FitnessProfile` object in steps.
+**Description**:  
+Create a builder class in `builder.py` to step-by-step construct `FitnessProfile` objects.
 
-- Create `FitnessProfileBuilder` with chaining methods
-- Include `build()` function to return final object
-- File: `/creational_patterns/builder.py`
+- Class: `FitnessProfileBuilder`
+- Chaining methods: `set_age()`, `set_weight()`, `set_height()`, `set_activity_level()`
+- Finalize with `build()`
+- File path: `creational_patterns/builder.py`
 
 ---
 
@@ -73,12 +79,13 @@ Use Builder Pattern to construct complex `FitnessProfile` object in steps.
 
 **Labels**: `enhancement`, `creational-pattern`, `assignment10`
 
-**Description**:
-Use Prototype Pattern to clone existing `Recommendation` objects.
+**Description**:  
+Use the Prototype pattern in `prototype.py` to clone existing `Recommendation` instances.
 
-- Create a `clone()` method using `deepcopy`
-- Create a `RecommendationCache` to store and retrieve clones
-- File: `/creational_patterns/prototype.py`
+- Add `clone()` method to `Recommendation`
+- Create `RecommendationCache` to store and return deep copies
+- Use `copy.deepcopy()`
+- File path: `creational_patterns/prototype.py`
 
 ---
 
@@ -86,11 +93,12 @@ Use Prototype Pattern to clone existing `Recommendation` objects.
 
 **Labels**: `testing`, `assignment10`
 
-**Description**:
-Write a unit test using `pytest` to validate Singleton pattern works as expected.
+**Description**:  
+Add a test case in `test_singleton.py` to verify Singleton logic.
 
-- Test that multiple instances are the same object
-- File: `/tests/test_singleton.py`
+- Ensure all `DatabaseConnection()` instances refer to the same object
+- Check shared `connected` state
+- File path: `tests/test_singleton.py`
 
 ---
 
@@ -98,12 +106,14 @@ Write a unit test using `pytest` to validate Singleton pattern works as expected
 
 **Labels**: `documentation`, `assignment10`
 
-**Description**:
-Update `README.md` to include:
+**Description**:  
+Update `README.md` with complete documentation for Assignment 10.
 
-- All six creational patterns
-- How to run tests with pytest
-- Author and assignment info
+- Add descriptions for all creational patterns
+- Include folder structure
+- Add pytest instructions
+- Author: Nsuku Sambo – 221358986
+- File path: `README.md`
 
 ---
 
@@ -111,9 +121,13 @@ Update `README.md` to include:
 
 **Labels**: `documentation`, `assignment10`
 
-**Description**:
-Create a `CHANGELOG.md` file and include:
+**Description**:  
+Create `CHANGELOG.md` to document development progress and key additions.
 
-- Completed pattern implementation
-- Test additions
-- First stable release
+- Mention implementation of:
+  - Class diagram (`/src/`)
+  - Six creational patterns (`/creational_patterns/`)
+  - Unit test (`/tests/test_singleton.py`)
+  - Project management issues (`/issues`)
+- Format using versioned markdown headings
+- File path: `CHANGELOG.md`
